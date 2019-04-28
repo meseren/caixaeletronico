@@ -10,13 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/deposito', 'DepositoController@depositar');
 
-Auth::routes();
+Route::get('/deposito', 'DepositoController@deposito')->name('deposito');
+
+Route::post('/deposito/novo', 'DepositoController@depositar')->name('depositar');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/saque', 'SaqueController@saque')->name('saque');

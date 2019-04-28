@@ -24,10 +24,10 @@
         <div class="col-lg-5 col-md-7">
           <div class="card bg-secondary shadow border-0">
             <div class="card-header bg-transparent pb-5">
-                <a href="<?php echo action("HomeController@index");?>">
+                <a href="{{ route('home') }}">
                   <button type="button" class="btn btn-primary my-4 btn-conta">Acessar Minha Conta</button>
                 </a>
-                <a href="<?php echo action("DepositoController@depositar");?>">
+                <a href="{{ route('deposito') }}">
                   <button type="button" class="btn btn-primary my-4 btn-conta">Depósito</button>
                 </a>
             </div>

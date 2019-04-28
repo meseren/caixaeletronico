@@ -17,7 +17,6 @@ class CreateCedulasTable extends Migration
             $table->bigIncrements('id');
             $table->integer('valor');
             $table->integer('quantidade');
-            $table->timestamps();
         });
     }
 

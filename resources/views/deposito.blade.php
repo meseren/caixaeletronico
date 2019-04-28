@@ -24,13 +24,14 @@
     <div class="col-lg-5 col-md-7">
       <div class="card bg-secondary shadow border-0">
         <div class="card-body px-lg-5 py-lg-5">
-          <form role="form">
+          <form action="{{ route('depositar') }}" method="POST" role="form">
+            @csrf
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-building"></i></span>
                 </div>
-                <input class="form-control" placeholder="Agência" type="number">
+                <input class="form-control" placeholder="Agência" name="agencia" type="number" required>
               </div>
             </div>
             <div class="form-group mb-3">
@@ -38,7 +39,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="far fa-address-card"></i></span>
                 </div>
-                <input class="form-control" placeholder="Conta" type="number">
+                <input class="form-control" placeholder="Conta" name="conta" type="number" required>
               </div>
             </div>
             <div class="form-group mb-3">
@@ -46,13 +47,18 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                 </div>
-                <input class="form-control" placeholder="Valor" type="number">
+                <input class="form-control" placeholder="Valor" name="valor" type="number" required>
               </div>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary my-4">Depositar</button>
+              <button type="submit" class="btn btn-primary my-4">Depositar</button>
             </div>
           </form>
+          @if(isset($insercao) && $insercao)
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              Depósito realizado com sucesso!
+            </div>
+          @endif
         </div>
       </div>
       <div class="row mt-3">
@@ -64,3 +70,4 @@
   </div>
 </div>
 @endsection
+

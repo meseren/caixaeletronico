@@ -1,12 +1,17 @@
+<?php
+    Session::put('user_id', Auth::user()->id);
+?>
+
 @extends('layouts.app')
 
 @section('content')
+
     <div class="header bg-gradient-primary py-7 py-lg-8">
       <div class="container">
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
-              <h1 class="text-white">Olá, Bom dia!</h1>
+              <h1 class="text-white">Olá, {{ Auth::user()->name }}!</h1>
               <p class="text-lead text-light">Escolha a ação que deseja excutar</p>
             </div>
           </div>
@@ -24,7 +29,7 @@
         <div class="col-lg-5 col-md-7">
           <div class="card bg-secondary shadow border-0">
             <div class="card-header bg-transparent pb-5">
-                <a href="<?php echo action("DepositoController@depositar");?>">
+                <a href="{{ route('saque') }}">
                   <button type="button" class="btn btn-primary my-4 btn-conta">Saque da Conta Corrente</button>
                 </a>
                 <a href="<?php echo action("DepositoController@depositar");?>">
