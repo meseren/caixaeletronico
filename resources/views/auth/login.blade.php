@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="header bg-gradient-primary py-7 py-lg-8">
   <div class="container">
     <div class="header-body text-center mb-7">
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-6">
-          <h1 class="text-white">Área de Depósito</h1>
-          <p class="text-lead text-light">É necessário preencher as informações abaixo:</p>
+          <h1 class="text-white">Acessar Minha Conta</h1>
+          <p class="text-lead text-light">Para acessar sua conta, é necessário inserir os dados abaixo:</p>
         </div>
       </div>
     </div>
@@ -18,49 +19,52 @@
     </svg>
   </div>
 </div>
+
 <!-- Page content -->
 <div class="container mt--8 pb-5">
   <div class="row justify-content-center">
     <div class="col-lg-5 col-md-7">
       <div class="card bg-secondary shadow border-0">
         <div class="card-body px-lg-5 py-lg-5">
-          <form role="form">
+          <form method="POST" action="{{ route('login') }}">
+            @csrf
+            
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-building"></i></span>
+                  <span class="input-group-text"><i class="fas fa-at"></i></span>
                 </div>
-                <input class="form-control" placeholder="Agência" type="number">
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="E-mail" required autocomplete="email" autofocus>
+                @error('email')
+                    <span class="invalid-feedback alert-error" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
               </div>
             </div>
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="far fa-address-card"></i></span>
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <input class="form-control" placeholder="Conta" type="number">
-              </div>
-            </div>
-            <div class="form-group mb-3">
-              <div class="input-group input-group-alternative">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                </div>
-                <input class="form-control" placeholder="Valor" type="number">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Senha" required autocomplete="current-password">
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
               </div>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary my-4">Depositar</button>
+              <button type="submit" class="btn btn-primary my-4">{{ __('Login') }}</button>
             </div>
           </form>
-        </div>
-      </div>
-      <div class="row mt-3">
-        <div class="col-6">
-          <a href="/" class="text-light"><small><i class="fas fa-arrow-left"></i> Voltar ao Início</small></a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 @endsection

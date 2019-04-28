@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/deposito', 'DepositoController@depositar');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
