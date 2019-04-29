@@ -17,6 +17,7 @@ class CreateCedulasTable extends Migration
             $table->bigIncrements('id');
             $table->integer('valor');
             $table->integer('quantidade');
+            $table->integer('quantidade_minima');
         });
     }
 

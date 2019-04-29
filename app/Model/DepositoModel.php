@@ -9,7 +9,8 @@ class DepositoModel extends Model
 {
     protected $table = 'depositos';
 
-    public function depositar($dados){
+    public function depositar($dados)
+    {
     	$deposito = DB::table('depositos')->insert(
 					    ['agencia' => $dados['agencia'], 
 						 'conta'   => $dados['conta'],

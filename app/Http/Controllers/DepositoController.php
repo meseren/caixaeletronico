@@ -20,11 +20,13 @@ class DepositoController extends Controller
     }
 
 
-    public function deposito(){
+    public function deposito()
+    {
     	return view('deposito');
     }
 
-    public function depositar(Request $request){
+    public function depositar(Request $request)
+    {
     	$dados = $request->all();
     	
     	return view('deposito')->with('insercao', $this->DepositoModel->depositar($dados));

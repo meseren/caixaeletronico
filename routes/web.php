@@ -23,4 +23,8 @@ Route::post('/deposito/novo', 'DepositoController@depositar')->name('depositar')
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/saque', 'SaqueController@saque')->name('saque');
+Route::get('/saque', 'SaqueController@getSaldo')->name('saque');
+
+Route::post('/saque/novo', 'SaqueController@getSugestaoNotas')->name('sugestaonotas');
+
+Route::post('/saque/finalizar', 'SaqueController@sacar')->name('sacar');

@@ -21869,3 +21869,7 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
     padding: 10px;
     font-size: 11px;
 }
+.alert-error-saque{
+    text-align: center;
+    font-weight: bold;
+}

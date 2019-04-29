@@ -24,7 +24,7 @@
         <div class="col-lg-5 col-md-7">
           <div class="card bg-secondary shadow border-0">
             <div class="card-header bg-transparent pb-5">
-              
+
                 <!-- Saldo Atual-->
                 <div class="card card-stats mb-4 mb-lg-0">
                     <div class="card-body">
@@ -44,18 +44,21 @@
                 <!--Fim Saldo Atual-->
 
                 <br>
-                <div class="form-group mb-3">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                <form action="{{ route('sugestaonotas') }}" method="post">
+                  @csrf
+                  <div class="form-group mb-3">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                      </div>
+                      <input id="valor" type="number" class="form-control" name="valor" placeholder="Valor" required autofocus>
                     </div>
-                    <input id="valor" type="number" class="form-control" name="valor" placeholder="Valor" required autofocus>
                   </div>
-                </div>
 
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-4">Sacar</button>
-                </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary my-4">Sacar</button>
+                  </div>
+                </form>
             </div>
           </div>
           <div class="row mt-3">
