@@ -3,7 +3,7 @@ Desenvolver um sistema que funciona como um caixa eletrônico.
 
 Dados para acesso: 
 
-<b>E-mail:<b> admin@hotmail.com
+<b>E-mail:</b> admin@hotmail.com
 <br>
 <b>Senha:</b> 12345678
     
